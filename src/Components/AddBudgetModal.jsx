@@ -1,7 +1,7 @@
-import { Button, Modal, Form } from "react-bootstrap"
+import { Form, Button, Modal } from "react-bootstrap"
 import { useRef } from "react"
 import { useBudgets } from "../Contexts/BudgetContexts"
-const AddBudgetModel = ({show,handleClose}) => {
+const AddBudgetModal = ({show,handleClose}) => {
     const nameRef=useRef()
     const maxRef=useRef()
     const { addBudget }= useBudgets()
@@ -19,16 +19,16 @@ const AddBudgetModel = ({show,handleClose}) => {
     return (
         <Modal show={show} onHide={handleClose}>
             <Form onSubmit={handleSubmit}>
-                <Modal.header closeButton>
-                    <Modal.title>New Budget</Modal.title>
-                </Modal.header>
+                <Modal.Header closeButton>
+                    <Modal.Title>New Budget</Modal.Title>
+                </Modal.Header>
                 <Modal.Body>
-                    <Form.Group ControlID="name" className="mb-3">
-                        <Form.label>Name</Form.label>
+                    <Form.Group controlId="name" className="mb-3">
+                        <Form.Label>Name</Form.Label>
                         <Form.Control ref={nameRef} type="text" required/>
                     </Form.Group>
-                    <Form.Group ControlID="max" className="mb-3">
-                        <Form.label>Max Spending</Form.label>
+                    <Form.Group controlId="max" className="mb-3">
+                        <Form.Label>Max Spending</Form.Label>
                         <Form.Control ref={maxRef} type="number" required min={0} step={.01}/>
                     </Form.Group>
                     <div className="d-flex justify-content-end">
@@ -40,4 +40,4 @@ const AddBudgetModel = ({show,handleClose}) => {
     )
 }
 
-export default AddBudgetModel
+export default AddBudgetModal
